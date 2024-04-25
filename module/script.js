@@ -37,19 +37,7 @@ window.onclick = function(event) {
 document.getElementById("myForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent default form submission
 //   var formData = new FormData(this); // Get form data
-//   var name = formData.get("name");
-//   var email = formData.get("email");
 
-//   // Append data to table
-//   var table = document.getElementById("dataTable").getElementsByTagName('tbody')[0];
-//   var newRow = table.insertRow(table.rows.length);
-//   var cell1 = newRow.insertCell(0);
-//   var cell2 = newRow.insertCell(1);
-//   cell1.innerHTML = name;
-//   cell2.innerHTML = email;
-
-//   // Close modal
-//   modal.style.display = "none";
 const form  = document.getElementById('myForm');
 const  name  = document.getElementById('name').value ;
 const email  = document.getElementById("email").value;
@@ -58,6 +46,7 @@ const row  = document.createElement('tr');
 row.innerHTML=`
 <td>${name}</td>
 <td>${email}</td>
+<td><button class="deleteBtn">Delete</button></td>
 
 `
 modal.style.display="none"
@@ -66,3 +55,11 @@ tableBody.appendChild(row);
   // Reset form
   this.reset();
 });
+document.addEventListener("click", function(event) {
+  
+    if (event.target.classList.contains("deleteBtn")) {
+      const row = event.target.closest("tr");
+      console.log(row)
+      row.remove();
+    }
+  });

@@ -38,3 +38,9 @@ body{
     text-decoration: none;
     cursor: pointer;
   }
+.element th{
+    padding: 20px;
+}
+.element td{
+    padding: 20px; 
+}
